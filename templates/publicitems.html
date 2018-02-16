@@ -1,0 +1,40 @@
+<head>
+  <link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <div class = 'container-fluid header'>
+    <h1>{{category.name}} Items </h1>
+  </div>
+  <body>
+    <div class = 'container-fluid body'>
+      <div class = 'flash'>
+          {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+  </div>
+      <a href = "{{url_for('createItem')}}"
+         class = 'btn btn-primary col-lg-3'>Create New Item</a>
+        {%for item in items%}
+          <a href = "{{url_for('showItem',
+                      category_name = category.name, item_name = item.name)}}">
+
+          <h3>{{item.name}}</h3>
+
+          {%endfor%}
+
+          <a class = "btn btn-primary col-lg-3"
+          href = "{{url_for('showCatalog')}}"> Back to Categories</a>
+</div>
+  </body>
+
+
+
+</head>

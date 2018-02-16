@@ -1,0 +1,72 @@
+<head>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+  <body>
+    <div class = "container-fluid header">
+      <h1>Welcome to my Item Catalog!
+
+        {% if 'username' not in session %}
+          <a class="btn btn-primary" href = "{{url_for('showLogin')}}" id = "signin">Sign In</a>
+        {% else %}
+          <a class="btn btn-primary" id = "signin" href = "{{url_for('gdisconnect')}}">Log Out</a>
+        {% endif %}
+      </h1>
+    </div>
+    <div class = 'flash'>
+        {% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+      <ul>
+      {% for message in messages %}
+          <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+      </ul>
+      {% endif %}
+  {% endwith %}
+
+</div>
+    <div class = "container-fluid " id = "mainContainer">
+      <div class = "row">
+          <a class="btn btn-primary"  id = "newItemButton"
+          href = "{{url_for('createItem')}}">Create New Item</a>
+    </div>
+      <div class = "row">
+        <div id = "categories" class = "col-lg-3">
+          <h4>Categories:</h4>
+          {% for category in categories %}
+            <a class = "btn btn-primary col"
+            href = "{{url_for('showItems', category_name = category.name)}}">
+            {{category.name}}<br>
+          </a>
+          {% endfor %}
+        </div>
+        <div id = "recentItems" class = "col-lg-9">
+          <h4>Most Recent Items:</h4>
+
+            <div class = "card-deck col-lg-12">
+              {% for item in recentItems %}
+
+              <div class="card col-md-3">
+
+                  <div class="card-block">
+                    <a href = "{{url_for('showItem',
+                    category_name=item.category_name, item_name=item.name)}}">
+                    <h4 class ="card-title"> {{item.name}}</h4></a>
+                    <p class="card-text">{{item.category_name}}</p>
+                    <p class = "card-text">{{item.descriptions}}</p>
+
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+  </body>
+
+
+
+
+</head>

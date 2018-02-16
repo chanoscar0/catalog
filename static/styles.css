@@ -1,0 +1,51 @@
+#mainContainer{
+
+    background-color:#b8e9ee;
+    height: 100%;
+}
+
+.header{
+    background-color: #40E0D0;
+    text-align: left;
+    color: white;
+    margin-bottom: -8px;
+}
+
+#newItemHeader{
+  color: white;
+}
+.body{
+  background-color:#b8e9ee;
+  height: 100%;
+}
+#deleteItem{
+  text-align: center;
+  vertical-align: middle;
+}
+#itemContent{
+  margin-top: 5px;
+  text-align: center;
+
+}
+#categoryHeader{
+  text-align: left;
+  margin-top: 10px;
+}
+#signin{
+  float: right;
+  display: inline-block;
+  margin-top: 3px;
+  margin-left: 5px;
+}
+.btn{
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+#newItemButton{
+  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-left: 100px;
+}
+.card{
+  margin-bottom: 10px;
+}

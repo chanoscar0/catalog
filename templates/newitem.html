@@ -1,0 +1,40 @@
+<html>
+<head>
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+  <body>
+      <div class = 'container-fluid body'>
+          <h1 id = "newItemHeader">Create a new item</h1>
+        <form action = "{{url_for('createItem')}}" method = "POST">
+          <p>Item Name:<br>
+            <input type = 'text' size = '30' name = 'name'><br>
+            Item Description:<br>
+            <textarea name = 'description' cols = 100></textarea><br>
+            Item Picture:<br>
+            <input type = 'url' size = '101' name = 'picture'><br></p>
+            <p>Category:<br>
+              <select name = 'category_name'>
+                {% for category in categories %}
+                <option value = "{{category.name}}">{{category.name}}</option>
+                {% endfor %}
+              </select></p>
+              <input class = "btn btn-primary col-lg-3" type = 'reset'>
+              <input class = "btn btn-primary col-lg-3" type = "submit">
+            </form>
+        </div>
+
+
+
+
+
+  </body>
+
+
+
+
+
+
+
+</html>
