@@ -35,5 +35,8 @@ When CDed, run application.py and report to localhost:8000 on your computer.
 
 There, the functionality should be present.
 
-![ScreenShot] (https://raw.github.com/chanoscar0/catalog/Item_Catalog_SS.png)
+# Challenges
 
+The biggest challenges when creating this web application was formatting the JSON response when I added in the JSON links. In order to overcome that, I created a custom dictionary in my JSON method to supply the JSON in the correct format when asked.
+
+Another challenge that I had to overcome with this project was the addition of OAuth2. I struggled to get the correct permissioning from Gmail to run the correct state of the application. I overcame this by reading through the Oauth2 documentation on Gmail and working through the problem step by step. 
